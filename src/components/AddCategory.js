@@ -7,10 +7,12 @@ export const AddCategory = (props) => {
     const { setCategories } = props;
 
     const handleInputChange = (e) => {
+        console.log('Inside handleInputChange');
         setInputValue(e.target.value);
     }
 
     const handleSubmit = (e) => {
+        console.log('Inside handleSubmit');
         e.preventDefault();
         
         if(inputValue.trim().length > 1) {
