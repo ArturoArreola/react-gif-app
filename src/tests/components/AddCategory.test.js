@@ -27,4 +27,12 @@ describe('Tests on <AddCategory/>', () => {
         wrapper.find('form').simulate('submit', { preventDefault: () => {} });
         expect(setCategories).not.toHaveBeenCalled();
      });
+
+     test('Call setCategories and clean inputText', () => {
+        const value = 'Hello World';
+        wrapper.find('input').simulate('change', {target: {value}});
+        wrapper.find('form').simulate('submit', {preventDefault: () => {} });
+        expect(setCategories).toHaveBeenCalled();
+        expect(wrapper.find('input').prop('value')).toBe('');
+    })
 });
